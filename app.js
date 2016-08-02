@@ -18,7 +18,7 @@ app.get("/api/lyrics", function(req, res) {
   // res.send("Hello World!");
 });
 
-var server = app.listen(procss.env.PORT || 3000, function () {
+var server = app.listen(3000, function () {
   var host = server.address().address; 
   var port = server.address().port;
 
