@@ -2,7 +2,7 @@ var lyrics = require("./lyrics.js"); //this file is in the same directory as the
 
 var express = require("express");
 var app = express();
-
+app.set("port", (process.env.PORT || 3000));
 app.use(express.static(__dirname + "/public"));
 
 // respond with "Hello World!" on the homepage
@@ -18,11 +18,11 @@ app.get("/api/lyrics", function(req, res) {
   // res.send("Hello World!");
 });
 
-var server = app.listen(3000, function () {
+var server = app.listen(app.get("PORT"), function () {
   var host = server.address().address; 
   var port = server.address().port;
 
-console.log("Example app listening at http://%s:%s", host, port);
+console.log("Example app listening at http://%s:%s", host, app.get("port"));
 });
 
 
